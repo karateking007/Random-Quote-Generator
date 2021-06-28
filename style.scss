@@ -1,74 +1,78 @@
 @mixin transitionBG {
-    transition: background 1s linear;
-    -webkit-transition: background 1s linear;
-    -moz-transition: background 1s linear;
-  }
-  
-  @mixin transitionColor {
-    transition: color 1s linear;
-    -webkit-transition: color 1s linear;
-    -moz-transition: color 1s linear;
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    font-family: "Open Sans", sans-serif;
-  
-    .container-fluid {
-      width: 100vw;
-      height: 100vh;
-      @include transitionBG;
-  
-      .well {
-        width: 600px;
-        height: 400px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: white;
+  transition: background 1s linear;
+  -webkit-transition: background 1s linear;
+  -moz-transition: background 1s linear;
+}
+
+@mixin transitionColor {
+  transition: color 1s linear;
+  -webkit-transition: color 1s linear;
+  -moz-transition: color 1s linear;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+
+  .container-fluid {
+    width: 100vw;
+    height: 100vh;
+    @include transitionBG;
+
+    .well {
+      width: 600px;
+      height: 350px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      #quote-box {
+        height: 350px;
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-  
-        #quote-box {
-          width: 100%;
+        justify-content: space-around;
+
+        h4 {
+          margin-top: 20px;
+        }
+
+        #buttons {
           display: flex;
-          flex-direction: column;
+          flex-direction: row;
+          justify-content: space-between;
           align-items: center;
-          justify-content: center;
-  
-          #buttons {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: center;
-            width: 100%;
-  
-            .fab {
-              font-size: 4.6rem;
-            }
-  
-            .btn {
-              padding: 10px;
-              background-color: white;
-              border: none;
-              // @include transitionBG;
-            }
-  
-            #new-quote {
-              color: white;
-              font-weight: bold;
-            }
+          width: 500px;
+
+          .fab {
+            font-size: 4.6rem;
           }
-  
-          > * {
-            margin: 20px;
+
+          .btn {
+            padding: 10px;
+            background-color: white;
+            border: none;
+            // @include transitionBG;
           }
+
+          #new-quote {
+            color: white;
+            font-weight: bold;
+          }
+        }
+
+        > * {
+          margin: 20px;
         }
       }
     }
   }
-  
+}

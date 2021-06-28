@@ -2,6 +2,8 @@ const url = "https://zenquotes.io/api/random";
 const proxy = "https://cors-anywhere.herokuapp.com/";
 var quoteText = "Loading...";
 var quoteAuthor = "";
+var colorOne = "red";
+var colorTwo = "red";
 
 document.getElementById("text").innerHTML = quoteText;
 document.getElementById("author").innerHTML = quoteAuthor;
@@ -10,8 +12,15 @@ const backgroundColors = ["blue", "green", "purple", "orange", "red", "brown"];
 
 function changeColors() {
     var randNum = Math.floor(Math.random() * backgroundColors.length);
-    $(".container-fluid,.btn").css("background-color", backgroundColors[randNum]);
-    $("#text,#author,.fab").css("color", backgroundColors[randNum]);
+    colorOne = backgroundColors[randNum];
+    //   Prevent the same color from occuring twice in a row
+    if (colorTwo !== colorOne) {
+        $(".container-fluid,.btn").css("background-color", colorOne);
+        $("#text,#author,.fab").css("color", colorOne);
+    } else {
+        changeColors();
+    }
+    colorTwo = colorOne;
 }
 
 function loadQuote() {
@@ -24,12 +33,12 @@ function loadQuote() {
 
                 $("#twitter-icon").addClass("fa-twitter-square");
 
-                quoteText = data[0]["q"];
+                quoteText = '"' + data[0]["q"] + '"';
                 $("#text").html(quoteText);
                 quoteAuthor = data[0]["a"];
-                $("#author").html("- " + quoteAuthor);
+                $("#author").html(quoteAuthor);
 
-                $("h2,h4,.btn,.fab").fadeIn(1000);
+                $("h2,h4,.btn,.fab").fadeIn(500);
 
                 var quoteSplitStr = quoteText.split(" ");
                 var quoteUrlString = quoteSplitStr.join("%20");
@@ -41,12 +50,12 @@ function loadQuote() {
                 $("a").attr("href", result);
             }
         });
-    }, 1000);
+    }, 500);
 }
 
 function newQuote() {
     // $("#new-quote").click(function () {
-    $("h2,h4,.btn,.fab").fadeOut(1000);
+    $("h2,h4,.btn,.fab").fadeOut(500);
 
     loadQuote();
 }

@@ -14,7 +14,7 @@
 
 * .container-fluid .well {
   width: 600px;
-  height: 400px;
+  height: 350px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -37,6 +37,7 @@
 }
 
 * .container-fluid .well #quote-box {
+  height: 350px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -48,9 +49,12 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+* .container-fluid .well #quote-box h4 {
+  margin-top: 20px;
 }
 
 * .container-fluid .well #quote-box #buttons {
@@ -61,12 +65,13 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
+  width: 500px;
 }
 
 * .container-fluid .well #quote-box #buttons .fab {
