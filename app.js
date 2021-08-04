@@ -1,5 +1,3 @@
-import QUOTES_API_KEY from "./apikey.js"
-
 const url = "https://zenquotes.io/api/random";
 const proxy = "https://cors-anywhere.herokuapp.com/";
 var quoteText = "Loading...";
