@@ -41,7 +41,7 @@ function loadQuote() {
                 $("#author").html(quoteAuthor);
 
                 $("h2,h4,.btn,.fab").fadeIn(500);
-
+                console.log(quoteText);
                 var quoteSplitStr = quoteText.split(" ");
                 var quoteUrlString = quoteSplitStr.join("%20");
                 var authorSplitStr = quoteAuthor.split(" ");
