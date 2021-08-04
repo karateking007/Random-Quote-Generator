@@ -28,7 +28,7 @@ function changeColors() {
 function loadQuote() {
     setTimeout(function () {
         $.ajax({
-            url: URL,
+            url: '/.netlify/functions/apikey',
             dataType: "json",
             success: function (data) {
                 changeColors();
