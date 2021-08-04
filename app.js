@@ -1,5 +1,5 @@
-const url = "https://zenquotes.io/api/random";
-const proxy = "https://cors-anywhere.herokuapp.com/";
+// const url = "https://zenquotes.io/api/random";
+// const proxy = "https://cors-anywhere.herokuapp.com/";
 var quoteText = "Loading...";
 var quoteAuthor = "";
 var colorOne = "red";
@@ -28,7 +28,7 @@ function changeColors() {
 function loadQuote() {
     setTimeout(function () {
         $.ajax({
-            url: proxy + url,
+            url: URL,
             dataType: "json",
             success: function (data) {
                 changeColors();
