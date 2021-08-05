@@ -1,4 +1,4 @@
-import URL from "./apikey"
+import URL from "./apikey.js"
 
 // const url = "https://zenquotes.io/api/random";
 // const proxy = "https://cors-anywhere.herokuapp.com/";
