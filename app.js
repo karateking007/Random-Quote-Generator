@@ -10,11 +10,7 @@ var colorTwo = "red";
 document.getElementById("text").innerHTML = quoteText;
 document.getElementById("author").innerHTML = quoteAuthor;
 
-// console.log(process.env.QUOTES_API_KEY);
-
 const backgroundColors = ["blue", "green", "purple", "orange", "red", "brown"];
-
-console.log(URL);
 
 function changeColors() {
     var randNum = Math.floor(Math.random() * backgroundColors.length);
