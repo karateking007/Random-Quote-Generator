@@ -26,7 +26,7 @@ function changeColors() {
 }
 
 const loadQuote = async () =>
-    await (await fetch('/.netlify/functions/apikey')).json();
+    await (await fetch(URL)).json();
 
 loadQuote().then(data => {
     changeColors();
