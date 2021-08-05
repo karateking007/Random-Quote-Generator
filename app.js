@@ -11,7 +11,6 @@ document.getElementById("author").innerHTML = quoteAuthor;
 // console.log(process.env.QUOTES_API_KEY);
 
 const backgroundColors = ["blue", "green", "purple", "orange", "red", "brown"];
-const { API_URL, API_KEY } = process.env;
 
 
 function changeColors() {
@@ -27,60 +26,36 @@ function changeColors() {
     colorTwo = colorOne;
 }
 
-const loadQuote = async () =>
-    await (await fetch(URL)).json();
 
-loadQuote().then(data => {
-    changeColors();
+function loadQuote() {
+    setTimeout(function () {
+        $.ajax({
+            url: URL,
+            dataType: "json",
+            success: function (data) {
+                changeColors();
 
-    $("#twitter-icon").addClass("fa-twitter-square");
+                $("#twitter-icon").addClass("fa-twitter-square");
 
-    quoteText = '"' + data[0]["q"] + '"';
-    $("#text").html(quoteText);
-    quoteAuthor = data[0]["a"];
-    $("#author").html(quoteAuthor);
+                quoteText = '"' + data[0]["q"] + '"';
+                $("#text").html(quoteText);
+                quoteAuthor = data[0]["a"];
+                $("#author").html(quoteAuthor);
 
-    $("h2,h4,.btn,.fab").fadeIn(500);
-    console.log(quoteText);
-    var quoteSplitStr = quoteText.split(" ");
-    var quoteUrlString = quoteSplitStr.join("%20");
-    var authorSplitStr = quoteAuthor.split(" ");
-    var authorUrlString = authorSplitStr.join("%20");
+                $("h2,h4,.btn,.fab").fadeIn(500);
+                console.log(quoteText);
+                var quoteSplitStr = quoteText.split(" ");
+                var quoteUrlString = quoteSplitStr.join("%20");
+                var authorSplitStr = quoteAuthor.split(" ");
+                var authorUrlString = authorSplitStr.join("%20");
 
-    var twitterURL = "https://twitter.com/intent/tweet?text=";
-    var result = twitterURL + quoteUrlString + " -" + authorUrlString;
-    $("a").attr("href", result);
-})
-
-// function loadQuote() {
-//     setTimeout(function () {
-//         $.ajax({
-//             url: '/.netlify/functions/apikey',
-//             dataType: "json",
-//             success: function (data) {
-//                 changeColors();
-
-//                 $("#twitter-icon").addClass("fa-twitter-square");
-
-//                 quoteText = '"' + data[0]["q"] + '"';
-//                 $("#text").html(quoteText);
-//                 quoteAuthor = data[0]["a"];
-//                 $("#author").html(quoteAuthor);
-
-//                 $("h2,h4,.btn,.fab").fadeIn(500);
-//                 console.log(quoteText);
-//                 var quoteSplitStr = quoteText.split(" ");
-//                 var quoteUrlString = quoteSplitStr.join("%20");
-//                 var authorSplitStr = quoteAuthor.split(" ");
-//                 var authorUrlString = authorSplitStr.join("%20");
-
-//                 var twitterURL = "https://twitter.com/intent/tweet?text=";
-//                 var result = twitterURL + quoteUrlString + " -" + authorUrlString;
-//                 $("a").attr("href", result);
-//             }
-//         });
-//     }, 500);
-// }
+                var twitterURL = "https://twitter.com/intent/tweet?text=";
+                var result = twitterURL + quoteUrlString + " -" + authorUrlString;
+                $("a").attr("href", result);
+            }
+        });
+    }, 500);
+}
 
 function newQuote() {
     // $("#new-quote").click(function () {
