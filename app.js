@@ -1,7 +1,5 @@
 import URL from "./apikey.js"
 
-// const url = "https://zenquotes.io/api/random";
-// const proxy = "https://cors-anywhere.herokuapp.com/";
 var quoteText = "Loading...";
 var quoteAuthor = "";
 var colorOne = "red";
@@ -24,7 +22,6 @@ function changeColors() {
     }
     colorTwo = colorOne;
 }
-
 
 function loadQuote() {
     setTimeout(function () {
@@ -56,7 +53,6 @@ function loadQuote() {
     }, 500);
 }
 
-// function newQuote() {
 $("#new-quote").click(function () {
     $("h2,h4,.btn,.fab").fadeOut(500);
 
