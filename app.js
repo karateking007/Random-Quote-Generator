@@ -25,10 +25,10 @@ function changeColors() {
     colorTwo = colorOne;
 }
 
-const fetchQuotes = async () =>
+const loadQuote = async () =>
     await (await fetch('/.netlify/functions/apikey')).json();
 
-fetchQuotes().then(data => {
+loadQuote().then(data => {
     changeColors();
 
     $("#twitter-icon").addClass("fa-twitter-square");
