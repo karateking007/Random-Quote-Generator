@@ -11,6 +11,8 @@ document.getElementById("author").innerHTML = quoteAuthor;
 // console.log(process.env.QUOTES_API_KEY);
 
 const backgroundColors = ["blue", "green", "purple", "orange", "red", "brown"];
+const { API_URL, API_KEY } = process.env;
+
 
 function changeColors() {
     var randNum = Math.floor(Math.random() * backgroundColors.length);
