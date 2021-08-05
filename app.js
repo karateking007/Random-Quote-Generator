@@ -1,3 +1,5 @@
+import URL from "./apikey.js"
+
 // const url = "https://zenquotes.io/api/random";
 // const proxy = "https://cors-anywhere.herokuapp.com/";
 var quoteText = "Loading...";
@@ -12,7 +14,7 @@ document.getElementById("author").innerHTML = quoteAuthor;
 
 const backgroundColors = ["blue", "green", "purple", "orange", "red", "brown"];
 
-console.log(API_KEY);
+// console.log(API_KEY);
 
 function changeColors() {
     var randNum = Math.floor(Math.random() * backgroundColors.length);
