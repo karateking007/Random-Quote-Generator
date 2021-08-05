@@ -25,35 +25,60 @@ function changeColors() {
     colorTwo = colorOne;
 }
 
-function loadQuote() {
-    setTimeout(function () {
-        $.ajax({
-            url: '/.netlify/functions/apikey',
-            dataType: "json",
-            success: function (data) {
-                changeColors();
+const fetchQuotes = async () =>
+    await (await fetch('/.netlify/functions/apikey')).json();
 
-                $("#twitter-icon").addClass("fa-twitter-square");
+fetchQuotes().then(data => {
+    changeColors();
 
-                quoteText = '"' + data[0]["q"] + '"';
-                $("#text").html(quoteText);
-                quoteAuthor = data[0]["a"];
-                $("#author").html(quoteAuthor);
+    $("#twitter-icon").addClass("fa-twitter-square");
 
-                $("h2,h4,.btn,.fab").fadeIn(500);
-                console.log(quoteText);
-                var quoteSplitStr = quoteText.split(" ");
-                var quoteUrlString = quoteSplitStr.join("%20");
-                var authorSplitStr = quoteAuthor.split(" ");
-                var authorUrlString = authorSplitStr.join("%20");
+    quoteText = '"' + data[0]["q"] + '"';
+    $("#text").html(quoteText);
+    quoteAuthor = data[0]["a"];
+    $("#author").html(quoteAuthor);
 
-                var twitterURL = "https://twitter.com/intent/tweet?text=";
-                var result = twitterURL + quoteUrlString + " -" + authorUrlString;
-                $("a").attr("href", result);
-            }
-        });
-    }, 500);
-}
+    $("h2,h4,.btn,.fab").fadeIn(500);
+    console.log(quoteText);
+    var quoteSplitStr = quoteText.split(" ");
+    var quoteUrlString = quoteSplitStr.join("%20");
+    var authorSplitStr = quoteAuthor.split(" ");
+    var authorUrlString = authorSplitStr.join("%20");
+
+    var twitterURL = "https://twitter.com/intent/tweet?text=";
+    var result = twitterURL + quoteUrlString + " -" + authorUrlString;
+    $("a").attr("href", result);
+})
+
+// function loadQuote() {
+//     setTimeout(function () {
+//         $.ajax({
+//             url: '/.netlify/functions/apikey',
+//             dataType: "json",
+//             success: function (data) {
+//                 changeColors();
+
+//                 $("#twitter-icon").addClass("fa-twitter-square");
+
+//                 quoteText = '"' + data[0]["q"] + '"';
+//                 $("#text").html(quoteText);
+//                 quoteAuthor = data[0]["a"];
+//                 $("#author").html(quoteAuthor);
+
+//                 $("h2,h4,.btn,.fab").fadeIn(500);
+//                 console.log(quoteText);
+//                 var quoteSplitStr = quoteText.split(" ");
+//                 var quoteUrlString = quoteSplitStr.join("%20");
+//                 var authorSplitStr = quoteAuthor.split(" ");
+//                 var authorUrlString = authorSplitStr.join("%20");
+
+//                 var twitterURL = "https://twitter.com/intent/tweet?text=";
+//                 var result = twitterURL + quoteUrlString + " -" + authorUrlString;
+//                 $("a").attr("href", result);
+//             }
+//         });
+//     }, 500);
+// }
 
 function newQuote() {
     // $("#new-quote").click(function () {
