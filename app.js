@@ -56,11 +56,11 @@ function loadQuote() {
     }, 500);
 }
 
-function newQuote() {
-    // $("#new-quote").click(function () {
+// function newQuote() {
+$("#new-quote").click(function () {
     $("h2,h4,.btn,.fab").fadeOut(500);
 
     loadQuote();
-}
+});
 
 loadQuote();
