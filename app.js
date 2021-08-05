@@ -12,7 +12,7 @@ document.getElementById("author").innerHTML = quoteAuthor;
 
 const backgroundColors = ["blue", "green", "purple", "orange", "red", "brown"];
 
-console.log(URL);
+console.log(API_KEY);
 
 function changeColors() {
     var randNum = Math.floor(Math.random() * backgroundColors.length);
