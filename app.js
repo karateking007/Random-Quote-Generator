@@ -1,3 +1,5 @@
+import API_KEY from './apikey.js';
+
 var quoteText = "Loading...";
 var quoteAuthor = "";
 var colorOne = "red";
@@ -26,7 +28,7 @@ function loadQuote() {
         $.ajax({
             method: 'GET',
             url: 'https://api.api-ninjas.com/v1/quotes',
-            headers: { 'X-Api-Key': process.env.API_KEY },
+            headers: { 'X-Api-Key': API_KEY },
             contentType: 'application/json',
             success: function (data) {
                 if (data[0]["quote"].length > 120) {
