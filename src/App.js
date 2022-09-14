@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './App.css';
+import './app.css';
 import QuoteBlock from './components/QuoteBlock';
 import $ from 'jquery';
 import API_KEY from "./apikey";
@@ -51,6 +51,10 @@ class App extends Component {
   // Run API call after button is clicked
   handleClick() {
     this.apiCall();
+    this.setState(prevState => (
+      {
+        isToggleOn: !prevState.isToggleOn
+      }));
   }
 
   render() {
@@ -58,6 +62,7 @@ class App extends Component {
       <div className="App">
         <QuoteBlock
           apiData={this.state.data}
+          isToggleOn={this.state.isToggleOn}
           loading={this.state.loading}
           handleClick={this.handleClick.bind(this)} />
       </div>
