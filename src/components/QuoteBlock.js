@@ -6,17 +6,16 @@ class QuoteBlock extends Component {
     constructor(props) {
         super(props);
     }
-    state = {}
+
     render() {
         const loading = 'Loading...';
         return (
-
             <div className="container-fluid">
                 <div className="well">
                     <wrapper id="quote-box">
                         <div className="text-group">
-                            <h2 id="text" className="text-center">{this.props.apiData == null ? loading : this.props.apiData.quote}</h2>
-                            <h4 id="author" className="text-center">{this.props.apiData !== null ? this.props.apiData.author : null}</h4>
+                            <h2 id="text" className="text-center">{this.props.loading == true ? loading : this.props.apiData.quote}</h2>
+                            <h4 id="author" className="text-center">{this.props.loading == true ? '' : this.props.apiData.author}</h4>
                         </div>
                         <div id="buttons">
                             <div>
@@ -24,15 +23,12 @@ class QuoteBlock extends Component {
                                     className="fab"></i></a>
                             </div>
                             <div>
-                                <button id="new-quote" className="btn">New Quote</button>
+                                <button style={{ backgroundColor: 'blue' }} onClick={this.props.handleClick} id="new-quote" className="btn">New Quote</button>
                             </div>
                         </div>
                     </wrapper>
                 </div>
             </div>
-
-
-
         );
     }
 }
