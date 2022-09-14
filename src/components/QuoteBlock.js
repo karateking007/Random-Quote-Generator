@@ -8,14 +8,15 @@ class QuoteBlock extends Component {
     }
     state = {}
     render() {
+        const loading = 'Loading...';
         return (
 
             <div className="container-fluid">
                 <div className="well">
                     <wrapper id="quote-box">
                         <div className="text-group">
-                            <h2 id="text" className="text-center">Loading...</h2>
-                            <h4 id="author" className="text-center"></h4>
+                            <h2 id="text" className="text-center">{this.props.apiData == null ? loading : this.props.apiData.quote}</h2>
+                            <h4 id="author" className="text-center">{this.props.apiData !== null ? this.props.apiData.author : null}</h4>
                         </div>
                         <div id="buttons">
                             <div>
