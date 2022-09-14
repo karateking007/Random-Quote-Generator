@@ -9,7 +9,6 @@ class QuoteBlock extends Component {
 
     render() {
         // Variables for inline styling
-
         const loading = 'Loading...';
 
         var inputStyle = {
