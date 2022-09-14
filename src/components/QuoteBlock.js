@@ -8,7 +8,10 @@ class QuoteBlock extends Component {
     }
 
     render() {
+        // Variables for inline styling
+
         const loading = 'Loading...';
+
         var inputStyle = {
             bgCol: {
                 backgroundColor: ''
@@ -17,8 +20,10 @@ class QuoteBlock extends Component {
                 color: ''
             }
         }
+
         const backgroundColors = ["blue", "green", "purple", "orange", "red", "brown"];
 
+        // Change to random color
         function changeColors() {
             var randNum = Math.floor(Math.random() * backgroundColors.length);
             var colorOne = backgroundColors[randNum];
