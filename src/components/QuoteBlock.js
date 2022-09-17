@@ -1,6 +1,4 @@
 import { React, Component } from "react";
-import API_KEY from '../apikey';
-import $ from 'jquery';
 
 class QuoteBlock extends Component {
     constructor(props) {
@@ -17,6 +15,9 @@ class QuoteBlock extends Component {
             },
             col: {
                 color: ''
+            },
+            disp: {
+                display: 'flex'
             }
         }
 
@@ -39,6 +40,8 @@ class QuoteBlock extends Component {
 
         if (this.props.loading == false) {
             changeColors();
+        } else {
+            inputStyle.col.disp = 'none';
         }
 
         return (
@@ -49,10 +52,11 @@ class QuoteBlock extends Component {
                             <h2 id="text" className="text-center" style={inputStyle.col}>{this.props.loading == true ? loading : this.props.apiData.quote}</h2>
                             <h4 id="author" className="text-center" style={inputStyle.col}>{this.props.loading == true ? '' : this.props.apiData.author}</h4>
                         </div>
-                        <div id="buttons">
+                        <div id="buttons" style={inputStyle.disp}>
                             <div>
-                                <a href="#" target="_blank" title="Tweet Quote"><i id="twitter-icon"
-                                    className="fab fa-twitter" style={inputStyle.col}></i></a>
+                                <a href="#" target="_blank" title="Tweet Quote">
+                                    <i className="fab fa-twitter" style={inputStyle.col}></i>
+                                </a>
                             </div>
                             <div>
                                 <button style={inputStyle.bgCol} onClick={this.props.handleClick} id="new-quote" className="btn">New Quote</button>
