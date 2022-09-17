@@ -1,4 +1,5 @@
 import { React, Component } from "react";
+import load from "../img/load.gif"
 
 class QuoteBlock extends Component {
     constructor(props) {
@@ -6,60 +7,23 @@ class QuoteBlock extends Component {
     }
 
     render() {
-        // Variables for inline styling
-        const loading = 'Loading...';
-
-        var inputStyle = {
-            bgCol: {
-                backgroundColor: ''
-            },
-            col: {
-                color: ''
-            },
-            disp: {
-                display: 'flex'
-            }
-        }
-
-        const backgroundColors = ["blue", "green", "purple", "orange", "red", "brown"];
-
-        // Change to random color
-        function changeColors() {
-            var randNum = Math.floor(Math.random() * backgroundColors.length);
-            var colorOne = backgroundColors[randNum];
-            var colorTwo = ''
-            //   Prevent the same color from occuring twice in a row
-            if (colorTwo !== colorOne) {
-                inputStyle.bgCol.backgroundColor = colorOne
-                inputStyle.col.color = colorOne
-            } else {
-                changeColors();
-            }
-            colorTwo = colorOne;
-        }
-
-        if (this.props.loading == false) {
-            changeColors();
-        } else {
-            inputStyle.col.disp = 'none';
-        }
-
         return (
-            <div className="container-fluid" style={inputStyle.bgCol}>
+            <div className="container-fluid" style={{ backgroundColor: this.props.bgColor }}>
                 <div className="well">
                     <wrapper id="quote-box">
                         <div className="text-group">
-                            <h2 id="text" className="text-center" style={inputStyle.col}>{this.props.loading == true ? loading : this.props.apiData.quote}</h2>
-                            <h4 id="author" className="text-center" style={inputStyle.col}>{this.props.loading == true ? '' : this.props.apiData.author}</h4>
+                            <h2 id="text" style={{ color: this.props.bgColor }} className="text-center">{this.props.loading == true ? '' : this.props.apiData.quote}</h2>
+                            <h4 id="author" style={{ color: this.props.bgColor }} className="text-center">{this.props.loading == true ? '' : this.props.apiData.author}</h4>
+                            <a target="_blank" href="https://icons8.com/icon/H6C79JoP90DH/settings"><img src={this.props.loading == true ? load : null} style={{ width: 100 }} /></a>
                         </div>
-                        <div id="buttons" style={inputStyle.disp}>
+                        <div id="buttons">
                             <div>
                                 <a href="#" target="_blank" title="Tweet Quote">
-                                    <i className="fab fa-twitter" style={inputStyle.col}></i>
+                                    <i className="fab fa-twitter" style={{ color: this.props.bgColor }}></i>
                                 </a>
                             </div>
                             <div>
-                                <button style={inputStyle.bgCol} onClick={this.props.handleClick} id="new-quote" className="btn">New Quote</button>
+                                <button onClick={this.props.handleClick} id="new-quote" className="btn" style={{ backgroundColor: this.props.bgColor }}>New Quote</button>
                             </div>
                         </div>
                     </wrapper>

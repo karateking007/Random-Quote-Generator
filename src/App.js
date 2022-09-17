@@ -10,10 +10,12 @@ class App extends Component {
     this.state = {
       data: null,
       isToggleOn: true,
-      loading: true
+      loading: true,
+      bgColor: `rgb(255, 0, 255)`
     }
     this.apiCall = this.apiCall.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.changeColors = this.changeColors.bind(this);
   }
 
   // Fetch data from API
@@ -55,6 +57,18 @@ class App extends Component {
       {
         isToggleOn: !prevState.isToggleOn
       }));
+    this.changeColors();
+  }
+
+  // Change background color
+  changeColors() {
+    var originalArray = [1, 1, 1];
+    var newArr = originalArray.map((num) => {
+      return Math.floor(Math.random(num) * 256);
+    });
+    this.setState({
+      bgColor: `rgb(${newArr[0]}, ${newArr[1]}, ${newArr[2]})`
+    })
   }
 
   render() {
@@ -64,7 +78,8 @@ class App extends Component {
           apiData={this.state.data}
           isToggleOn={this.state.isToggleOn}
           loading={this.state.loading}
-          handleClick={this.handleClick.bind(this)} />
+          handleClick={this.handleClick.bind(this)}
+          bgColor={this.state.bgColor} />
       </div>
     );
   }

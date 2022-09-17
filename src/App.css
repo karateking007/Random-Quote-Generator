@@ -31,6 +31,9 @@
   align-items: center;
   justify-content: space-between;
 }
+* .container-fluid .well #quote-box .text-group {
+  height: 200px;
+}
 * .container-fluid .well #quote-box h4 {
   margin-top: 20px;
   font-weight: 400;
