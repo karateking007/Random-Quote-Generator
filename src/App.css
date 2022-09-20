@@ -10,8 +10,8 @@
   -webkit-transition: background 1s linear;
   -moz-transition: background 1s linear;
 }
-* .container-fluid .well {
-  width: 600px;
+* .container-fluid .card {
+  width: 40vw;
   height: 350px;
   position: absolute;
   top: 50%;
@@ -24,12 +24,12 @@
   justify-content: center;
 }
 @media (max-width: 768px) {
-  * .container-fluid .well {
-    max-width: 80vw;
-    max-height: 40vh;
+  * .container-fluid .card {
+    max-width: 90vw;
+    max-height: 50vh;
   }
 }
-* .container-fluid .well #quote-box {
+* .container-fluid .card #quote-box {
   height: 50vh;
   width: 100%;
   display: flex;
@@ -37,29 +37,11 @@
   align-items: center;
   justify-content: space-between;
 }
-@media (max-width: 768px) {
-  * .container-fluid .well #quote-box {
-    max-height: 100%;
-  }
-}
-* .container-fluid .well #quote-box #quote-text {
+* .container-fluid .card #quote-box #quote-text {
   display: flex;
   flex-direction: column;
 }
-@media (max-width: 768px) {
-  * .container-fluid .well #quote-box h2 {
-    font-size: 2rem;
-  }
-}
-* .container-fluid .well #quote-box h4 {
-  font-weight: 400;
-}
-@media (max-width: 768px) {
-  * .container-fluid .well #quote-box h4 {
-    font-size: 1.5rem;
-  }
-}
-* .container-fluid .well #quote-box #buttons {
+* .container-fluid .card #quote-box #buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -67,25 +49,25 @@
   width: 500px;
 }
 @media (max-width: 768px) {
-  * .container-fluid .well #quote-box #buttons {
+  * .container-fluid .card #quote-box #buttons {
     max-width: 100%;
   }
 }
-* .container-fluid .well #quote-box #buttons .fab {
-  font-size: 4.6rem;
+* .container-fluid .card #quote-box #buttons .fab {
+  font-size: 3.5rem;
   color: white;
 }
-* .container-fluid .well #quote-box #buttons .btn {
+* .container-fluid .card #quote-box #buttons .btn {
   padding: 10px;
   background-color: white;
   border: none;
 }
-* .container-fluid .well #quote-box #buttons .btn:focus {
+* .container-fluid .card #quote-box #buttons .btn:focus {
   box-shadow: none !important;
 }
-* .container-fluid .well #quote-box #buttons #new-quote {
+* .container-fluid .card #quote-box #buttons #new-quote {
   color: white;
 }
-* .container-fluid .well #quote-box > * {
+* .container-fluid .card #quote-box > * {
   margin: 20px;
 }/*# sourceMappingURL=App.css.map */

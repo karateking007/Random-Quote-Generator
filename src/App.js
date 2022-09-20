@@ -11,11 +11,13 @@ class App extends Component {
       data: null,
       isToggleOn: true,
       loading: true,
+      twitterLink: '',
       bgColor: `rgb(255, 0, 255)`
     }
     this.apiCall = this.apiCall.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.newQuote = this.newQuote.bind(this);
     this.changeColors = this.changeColors.bind(this);
+    this.updateTwitter = this.updateTwitter.bind(this);
   }
 
   // Fetch data from API
@@ -51,13 +53,21 @@ class App extends Component {
   }
 
   // Run API call after button is clicked
-  handleClick() {
+  newQuote() {
     this.apiCall();
     this.setState(prevState => (
       {
         isToggleOn: !prevState.isToggleOn
       }));
     this.changeColors();
+  }
+
+  // Update Twitter Link
+  updateTwitter() {
+    this.setState(
+      {
+        twitterLink: `https://twitter.com/intent/tweet?text=` + this.state.data.quote + ` - ${this.state.data.author}`
+      });
   }
 
   // Change background color
@@ -78,7 +88,9 @@ class App extends Component {
           apiData={this.state.data}
           isToggleOn={this.state.isToggleOn}
           loading={this.state.loading}
-          handleClick={this.handleClick.bind(this)}
+          newQuote={this.newQuote.bind(this)}
+          updateTwitter={this.updateTwitter.bind(this)}
+          twitterLink={this.state.twitterLink}
           bgColor={this.state.bgColor} />
       </div>
     );
