@@ -11,19 +11,22 @@ class QuoteBlock extends Component {
             <div className="container-fluid" style={{ backgroundColor: this.props.bgColor }}>
                 <div className="well">
                     <wrapper id="quote-box">
-                        <div className="text-group">
-                            <h2 id="text" style={{ color: this.props.bgColor }} className="text-center">{this.props.loading == true ? '' : this.props.apiData.quote}</h2>
-                            <h4 id="author" style={{ color: this.props.bgColor }} className="text-center">{this.props.loading == true ? '' : this.props.apiData.author}</h4>
-                            <a target="_blank" href="https://icons8.com/icon/H6C79JoP90DH/settings"><img src={this.props.loading == true ? load : null} style={{ width: 100 }} /></a>
+                        <div id="quote-text">
+                            <h2 id="text" className="text-center">
+                                {this.props.loading == false ? this.props.apiData.quote : <a target="_blank" href="https://icons8.com/icon/H6C79JoP90DH/settings"><img src={load} style={{ width: 100 }} /></a>}
+                            </h2>
+                            <h4 id="author" className="text-center">
+                                {this.props.loading == false ? `- ${this.props.apiData.author}` : null}
+                            </h4>
                         </div>
                         <div id="buttons">
                             <div>
                                 <a href="#" target="_blank" title="Tweet Quote">
-                                    <i className="fab fa-twitter" style={{ color: this.props.bgColor }}></i>
+                                    <i className="fab fa-twitter" style={{ color: 'black' }}></i>
                                 </a>
                             </div>
                             <div>
-                                <button onClick={this.props.handleClick} id="new-quote" className="btn" style={{ backgroundColor: this.props.bgColor }}>New Quote</button>
+                                <button onClick={this.props.handleClick} id="new-quote" className="btn" style={{ backgroundColor: 'black' }}>New Quote</button>
                             </div>
                         </div>
                     </wrapper>

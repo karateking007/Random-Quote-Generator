@@ -23,20 +23,41 @@
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 768px) {
+  * .container-fluid .well {
+    max-width: 80vw;
+    max-height: 40vh;
+  }
+}
 * .container-fluid .well #quote-box {
-  height: 350px;
+  height: 50vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
 }
-* .container-fluid .well #quote-box .text-group {
-  height: 200px;
+@media (max-width: 768px) {
+  * .container-fluid .well #quote-box {
+    max-height: 100%;
+  }
+}
+* .container-fluid .well #quote-box #quote-text {
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 768px) {
+  * .container-fluid .well #quote-box h2 {
+    font-size: 2rem;
+  }
 }
 * .container-fluid .well #quote-box h4 {
-  margin-top: 20px;
   font-weight: 400;
+}
+@media (max-width: 768px) {
+  * .container-fluid .well #quote-box h4 {
+    font-size: 1.5rem;
+  }
 }
 * .container-fluid .well #quote-box #buttons {
   display: flex;
@@ -44,6 +65,11 @@
   justify-content: space-between;
   align-items: center;
   width: 500px;
+}
+@media (max-width: 768px) {
+  * .container-fluid .well #quote-box #buttons {
+    max-width: 100%;
+  }
 }
 * .container-fluid .well #quote-box #buttons .fab {
   font-size: 4.6rem;
