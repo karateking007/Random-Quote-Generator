@@ -9,8 +9,8 @@ class QuoteBlock extends Component {
     render() {
         return (
             <div className="container-fluid" style={{ backgroundColor: this.props.bgColor }}>
-                <div className="card p-3 p-sm-4">
-                    <wrapper id="quote-box">
+                <div className="card py-1 px-3 px-sm-4">
+                    <wrapper id="quote-box" className="p-1">
                         <div id="quote-text">
                             <h3 id="text" className="text-center fs-3 fs-sm-4">
                                 {this.props.loading == false ? this.props.apiData.quote : <a target="_blank" href="https://icons8.com/icon/H6C79JoP90DH/settings"><img src={load} style={{ width: 100 }} /></a>}
