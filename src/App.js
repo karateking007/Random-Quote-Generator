@@ -32,6 +32,7 @@ class App extends Component {
       contentType: 'application/json',
       success: (data) => {
         if (data[0].quote.length < 100) {
+          this.changeColors();
           this.setState({
             data: data[0],
             loading: false
@@ -74,10 +75,10 @@ class App extends Component {
   changeColors() {
     var originalArray = [1, 1, 1];
     var newArr = originalArray.map((num) => {
-      return Math.floor(Math.random(num) * 256);
+      return Math.floor(Math.random(num) * 180);
     });
     this.setState({
-      bgColor: `rgb(${newArr[0]}, ${newArr[1]}, ${newArr[2]})`
+      bgColor: `rgb(${[...newArr]})`
     })
   }
 

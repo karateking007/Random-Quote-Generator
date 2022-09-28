@@ -60,6 +60,14 @@ $bp-xxl: 1400px;
         max-width: 35vw;
         max-height: 50vh;
       }
+
+      .transition-color {
+        @include transitionColor;
+      }
+
+      .transition-bg {
+        @include transitionBG;
+      }
     }
   }
 }

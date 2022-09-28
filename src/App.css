@@ -48,4 +48,14 @@
     max-width: 35vw;
     max-height: 50vh;
   }
+}
+* .container-fluid .card .transition-color {
+  transition: color 1s linear;
+  -webkit-transition: color 1s linear;
+  -moz-transition: color 1s linear;
+}
+* .container-fluid .card .transition-bg {
+  transition: background 1s linear;
+  -webkit-transition: background 1s linear;
+  -moz-transition: background 1s linear;
 }/*# sourceMappingURL=App.css.map */
