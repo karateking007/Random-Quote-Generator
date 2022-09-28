@@ -9,29 +9,41 @@ class QuoteBlock extends Component {
     render() {
         return (
             <div className="container-fluid" style={{ backgroundColor: this.props.bgColor }}>
-                <div className="card py-1 px-3 px-sm-4">
-                    <wrapper id="quote-box" className="p-1">
-                        <div id="quote-text">
-                            <h3 id="text" className="text-center fs-3 fs-sm-4">
-                                {this.props.loading == false ? this.props.apiData.quote : <a target="_blank" href="https://icons8.com/icon/H6C79JoP90DH/settings"><img src={load} style={{ width: 100 }} /></a>}
-                            </h3>
-                            <h4 id="author" className="text-center fs-5 fs-sm-6 fw-light mt-2">
-                                {this.props.loading == false ? `- ${this.props.apiData.author}` : null}
-                            </h4>
-                        </div>
-                        <div id="buttons" className="m-0">
-                            <div>
-                                <a onClick={this.props.updateTwitter} href={this.props.twitterLink} target="_blank" title="Tweet Quote">
-                                    <i className="fab fa-twitter" style={{ color: 'black' }}></i>
-                                </a>
+                <div className="card d-flex align-items-center w-100 p-2">
+                    <div className="row flex-grow-1">
+                        <div className="col text-center align-self-center">
+                            <div className="row">
+                                <div className="col text-center">
+                                    <p id="text" className="text-center fs-5">
+                                        {this.props.loading == false ? this.props.apiData.quote : <a target="_blank" href="https://icons8.com/icon/H6C79JoP90DH/settings"><img src={load} style={{ width: 100 }} /></a>}
+                                    </p>
+                                </div>
                             </div>
-                            <div>
-                                <button onClick={this.props.newQuote} id="new-quote" className="btn" style={{ backgroundColor: 'black' }}>New Quote</button>
+                            <div className="row">
+                                <div className="col text-center">
+                                    <p id="author" className="text-center fs-6 fw-light mt-1">
+                                        {this.props.loading == false ? `- ${this.props.apiData.author}` : null}
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </wrapper>
+                    </div>
+                    <div className="row w-100 h-25">
+                        <div className="col-12 align-self-end mb-2">
+                            <div className="row justify-content-between">
+                                <div className="col-2 text-start align-self-center">
+                                    <a onClick={this.props.updateTwitter} href={this.props.twitterLink} target="_blank" title="Tweet Quote">
+                                        <i className="fab fa-twitter fs-1" style={{ color: 'black' }}></i>
+                                    </a>
+                                </div>
+                                <div className="col-10 text-end align-self-center">
+                                    <button onClick={this.props.newQuote} id="new-quote" className="btn" style={{ backgroundColor: 'black', color: 'white' }}>New Quote</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </div >
         );
     }
 }

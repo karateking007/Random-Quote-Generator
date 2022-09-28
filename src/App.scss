@@ -10,7 +10,12 @@
   -moz-transition: color 1s linear;
 }
 
-$bp-tablet: 768px;
+$bp-xs: 0px;
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1200px;
+$bp-xxl: 1400px;
 
 * {
   margin: 0;
@@ -23,62 +28,37 @@ $bp-tablet: 768px;
     @include transitionBG;
 
     .card {
-      width: 40vw;
-      height: 350px;
+      height: 50vh;
+      max-width: 90vw;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       background-color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
 
-      @media (max-width: $bp-tablet) {
-        max-width: 90vw;
+      @media (min-width: $bp-sm) and (max-width: $bp-md) {
+        max-width: 65vw;
         max-height: 50vh;
       }
 
-      #quote-box {
-        height: 90%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
+      @media (min-width: $bp-md) and (max-width: $bp-lg) {
+        max-width: 55vw;
+        max-height: 50vh;
+      }
 
-        #quote-text {
-          display: flex;
-          flex-direction: column;
-        }
+      @media (min-width: $bp-lg) and (max-width: $bp-xl) {
+        max-width: 45vw;
+        max-height: 50vh;
+      }
 
-        #buttons {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-          width: 100%;
+      @media (min-width: $bp-xl) and (max-width: $bp-xxl) {
+        max-width: 40vw;
+        max-height: 50vh;
+      }
 
-          .fab {
-            font-size: 3.5rem;
-            color: white;
-          }
-
-          .btn {
-            padding: 10px;
-            background-color: white;
-            border: none;
-          }
-
-          .btn:focus {
-            box-shadow: none !important;
-          }
-
-          #new-quote {
-            color: white;
-          }
-        }
+      @media (min-width: $bp-xxl) {
+        max-width: 35vw;
+        max-height: 50vh;
       }
     }
   }
