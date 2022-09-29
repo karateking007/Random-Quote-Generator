@@ -36,36 +36,49 @@ $bp-xxl: 1400px;
       transform: translate(-50%, -50%);
       background-color: white;
 
+      @media (min-width: $bp-xs) and (max-width: $bp-sm) {
+        @media (orientation: portrait) {
+          max-height: 40vh;
+        }
+      }
+
       @media (min-width: $bp-sm) and (max-width: $bp-md) {
         max-width: 65vw;
-        max-height: 50vh;
+
+        @media (orientation: landscape) {
+          height: 60vh;
+        }
       }
 
       @media (min-width: $bp-md) and (max-width: $bp-lg) {
         max-width: 55vw;
-        max-height: 50vh;
+
+        @media (orientation: landscape) {
+          height: 60vh;
+        }
+
+        @media (orientation: portrait) {
+          height: 35vh;
+        }
       }
 
       @media (min-width: $bp-lg) and (max-width: $bp-xl) {
         max-width: 45vw;
-        max-height: 50vh;
       }
 
       @media (min-width: $bp-xl) and (max-width: $bp-xxl) {
         max-width: 40vw;
-        max-height: 50vh;
       }
 
       @media (min-width: $bp-xxl) {
         max-width: 35vw;
-        max-height: 50vh;
       }
 
       #quote {
 
         @media (max-width: $bp-md),
         (max-height: 650px) {
-          font-size: 1.3rem !important;
+          font-size: 1.2rem !important;
         }
       }
 

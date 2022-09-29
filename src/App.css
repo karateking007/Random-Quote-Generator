@@ -19,39 +19,54 @@
   transform: translate(-50%, -50%);
   background-color: white;
 }
+@media (min-width: 0px) and (max-width: 576px) and (orientation: portrait) {
+  * .container-fluid .card {
+    max-height: 40vh;
+  }
+}
 @media (min-width: 576px) and (max-width: 768px) {
   * .container-fluid .card {
     max-width: 65vw;
-    max-height: 50vh;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) and (orientation: landscape) {
+  * .container-fluid .card {
+    height: 60vh;
   }
 }
 @media (min-width: 768px) and (max-width: 992px) {
   * .container-fluid .card {
     max-width: 55vw;
-    max-height: 50vh;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) and (orientation: landscape) {
+  * .container-fluid .card {
+    height: 60vh;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) and (orientation: portrait) {
+  * .container-fluid .card {
+    height: 35vh;
   }
 }
 @media (min-width: 992px) and (max-width: 1200px) {
   * .container-fluid .card {
     max-width: 45vw;
-    max-height: 50vh;
   }
 }
 @media (min-width: 1200px) and (max-width: 1400px) {
   * .container-fluid .card {
     max-width: 40vw;
-    max-height: 50vh;
   }
 }
 @media (min-width: 1400px) {
   * .container-fluid .card {
     max-width: 35vw;
-    max-height: 50vh;
   }
 }
 @media (max-width: 768px), (max-height: 650px) {
   * .container-fluid .card #quote {
-    font-size: 1.3rem !important;
+    font-size: 1.2rem !important;
   }
 }
 @media (max-width: 768px), (max-height: 650px) {
