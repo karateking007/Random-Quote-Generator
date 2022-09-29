@@ -49,6 +49,16 @@
     max-height: 50vh;
   }
 }
+@media (max-width: 768px), (max-height: 650px) {
+  * .container-fluid .card #quote {
+    font-size: 1.3rem !important;
+  }
+}
+@media (max-width: 768px), (max-height: 650px) {
+  * .container-fluid .card #author {
+    font-size: 1rem !important;
+  }
+}
 * .container-fluid .card .transition-color {
   transition: color 1s linear;
   -webkit-transition: color 1s linear;

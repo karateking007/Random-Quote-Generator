@@ -61,6 +61,22 @@ $bp-xxl: 1400px;
         max-height: 50vh;
       }
 
+      #quote {
+
+        @media (max-width: $bp-md),
+        (max-height: 650px) {
+          font-size: 1.3rem !important;
+        }
+      }
+
+      #author {
+
+        @media (max-width: $bp-md),
+        (max-height: 650px) {
+          font-size: 1rem !important;
+        }
+      }
+
       .transition-color {
         @include transitionColor;
       }
