@@ -9,12 +9,12 @@ class QuoteBlock extends Component {
     render() {
         return (
             <div className="container-fluid" style={{ backgroundColor: this.props.bgColor }}>
-                <div className="card d-flex align-items-center w-100 p-3 p-sm-4">
+                <div className="card d-flex align-items-center w-100 p-3 p-sm-4 p-xl-5">
                     <div className="row flex-grow-1">
                         <div className="col text-center align-self-center">
                             <div className="row">
                                 <div className="col text-center">
-                                    <p id="quote" className="text-center fs-3 fw-bold transition-color" style={{ color: this.props.bgColor }}>
+                                    <p id="quote" className="text-center fs-4 fw-bold transition-color" style={{ color: this.props.bgColor }}>
                                         {this.props.loading == false ? this.props.apiData.quote : <a target="_blank" href="https://icons8.com/icon/H6C79JoP90DH/settings"><img src={load} style={{ width: 100 }} /></a>}
                                     </p>
                                 </div>

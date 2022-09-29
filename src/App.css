@@ -41,7 +41,7 @@
 }
 @media (min-width: 768px) and (max-width: 992px) and (orientation: landscape) {
   * .container-fluid .card {
-    height: 60vh;
+    height: 65vh;
   }
 }
 @media (min-width: 768px) and (max-width: 992px) and (orientation: portrait) {
