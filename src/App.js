@@ -9,7 +9,6 @@ class App extends Component {
     super(props);
     this.state = {
       data: null,
-      isToggleOn: true,
       loading: true,
       twitterLink: '',
       bgColor: `rgb(255, 0, 255)`
@@ -56,10 +55,6 @@ class App extends Component {
   // Run API call after button is clicked
   newQuote() {
     this.apiCall();
-    this.setState(prevState => (
-      {
-        isToggleOn: !prevState.isToggleOn
-      }));
     this.changeColors();
   }
 
@@ -87,7 +82,6 @@ class App extends Component {
       <div className="App">
         <QuoteBlock
           apiData={this.state.data}
-          isToggleOn={this.state.isToggleOn}
           loading={this.state.loading}
           newQuote={this.newQuote.bind(this)}
           updateTwitter={this.updateTwitter.bind(this)}
