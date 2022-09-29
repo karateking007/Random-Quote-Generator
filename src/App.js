@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './app.css';
+import './App.css';
 import QuoteBlock from './components/QuoteBlock';
 import $ from 'jquery';
 import API_KEY from "./apikey";
