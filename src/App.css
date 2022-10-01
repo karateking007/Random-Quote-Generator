@@ -12,6 +12,7 @@
 }
 * .container-fluid .card {
   height: 50vh;
+  min-height: 200px;
   max-width: 90vw;
   position: absolute;
   top: 50%;
