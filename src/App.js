@@ -1,29 +1,18 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import QuoteBlock from './components/QuoteBlock';
 import $ from 'jquery';
-import API_KEY from "./apikey";
+import { API_KEY } from './apikey';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: null,
-      loading: true,
-      twitterLink: '',
-      bgColor: `rgb(255, 0, 255)`
-    }
-    this.apiCall = this.apiCall.bind(this);
-    this.newQuote = this.newQuote.bind(this);
-    this.changeColors = this.changeColors.bind(this);
-    this.updateTwitter = this.updateTwitter.bind(this);
-  }
+const App = () => {
+  const [data, setData] = useState(() => null);
+  const [loading, setLoading] = useState(() => true);
+  const [twitterLink, setTwitterLink] = useState(() => '');
+  const [bgColor, setBgColor] = useState(() => `rgb(255, 0, 255)`);
 
   // Fetch data from API
-  apiCall() {
-    this.setState({
-      loading: true
-    })
+  const apiCall = _ => {
+    setLoading(true);
     $.ajax({
       method: 'GET',
       url: 'https://api.api-ninjas.com/v1/quotes',
@@ -31,14 +20,12 @@ class App extends Component {
       contentType: 'application/json',
       success: (data) => {
         if (data[0].quote.length < 100) {
-          this.changeColors();
-          this.setState({
-            data: data[0],
-            loading: false
-          })
+          changeColors();
+          setData(data[0]);
+          setLoading(false);
         }
         else {
-          this.apiCall();
+          apiCall();
         }
       },
       error: function ajaxError(jqXHR) {
@@ -48,48 +35,41 @@ class App extends Component {
   }
 
   // Run API call after initial render
-  componentDidMount() {
-    this.apiCall();
-  }
+  useEffect(() => {
+    apiCall();
+  }, [])
 
   // Run API call after button is clicked
-  newQuote() {
-    this.apiCall();
-    this.changeColors();
+  const newQuote = _ => {
+    apiCall();
+    changeColors();
   }
 
   // Update Twitter Link
-  updateTwitter() {
-    this.setState(
-      {
-        twitterLink: `https://twitter.com/intent/tweet?text=` + this.state.data.quote + ` - ${this.state.data.author}`
-      });
+  const updateTwitter = _ => {
+    setTwitterLink(`https://twitter.com/intent/tweet?text=` + data.quote + ` - ${data.author}`)
   }
 
   // Change background color
-  changeColors() {
+  const changeColors = _ => {
     var originalArray = [1, 1, 1];
     var newArr = originalArray.map((num) => {
       return Math.floor(Math.random(num) * 180);
     });
-    this.setState({
-      bgColor: `rgb(${[...newArr]})`
-    })
+    setBgColor(`rgb(${[...newArr]})`)
   }
 
-  render() {
-    return (
-      <div className="App">
-        <QuoteBlock
-          apiData={this.state.data}
-          loading={this.state.loading}
-          newQuote={this.newQuote.bind(this)}
-          updateTwitter={this.updateTwitter.bind(this)}
-          twitterLink={this.state.twitterLink}
-          bgColor={this.state.bgColor} />
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <QuoteBlock
+        apiData={data}
+        loading={loading}
+        newQuote={() => newQuote()}
+        updateTwitter={() => updateTwitter()}
+        twitterLink={twitterLink}
+        bgColor={bgColor} />
+    </div>
+  );
 }
 
-export default App;
+export default App
