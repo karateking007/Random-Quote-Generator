@@ -3,16 +3,18 @@ import './App.css';
 import QuoteBlock from './components/QuoteBlock';
 import $ from 'jquery';
 import { API_KEY } from './apikey';
+import { useSelector, useDispatch } from 'react-redux'
+import { setLoading, setData, setBgColor, setTwitterLink } from './redux/appSlice'
+import { addListener } from '@reduxjs/toolkit';
 
 const App = () => {
-  const [data, setData] = useState(() => null);
-  const [loading, setLoading] = useState(() => true);
-  const [twitterLink, setTwitterLink] = useState(() => '');
-  const [bgColor, setBgColor] = useState(() => `rgb(255, 0, 255)`);
+  const loading = useSelector((state) => state.loading);
+  const { data } = useSelector((state) => state.data);
+  const bgColor = useSelector((state) => state.bgColor);
+  const dispatch = useDispatch();
 
   // Fetch data from API
   const apiCall = _ => {
-    setLoading(true);
     $.ajax({
       method: 'GET',
       url: 'https://api.api-ninjas.com/v1/quotes',
@@ -20,9 +22,9 @@ const App = () => {
       contentType: 'application/json',
       success: (data) => {
         if (data[0].quote.length < 100) {
-          changeColors();
-          setData(data[0]);
-          setLoading(false);
+          dispatch(setBgColor());
+          dispatch(setData(data[0]));
+          dispatch(setLoading(false));
         }
         else {
           apiCall();
@@ -36,38 +38,25 @@ const App = () => {
 
   // Run API call after initial render
   useEffect(() => {
+    dispatch(setLoading(true));
     apiCall();
   }, [])
 
   // Run API call after button is clicked
   const newQuote = _ => {
+    dispatch(setLoading(true));
     apiCall();
-    changeColors();
-  }
-
-  // Update Twitter Link
-  const updateTwitter = _ => {
-    setTwitterLink(`https://twitter.com/intent/tweet?text=` + data.quote + ` - ${data.author}`)
-  }
-
-  // Change background color
-  const changeColors = _ => {
-    var originalArray = [1, 1, 1];
-    var newArr = originalArray.map((num) => {
-      return Math.floor(Math.random(num) * 180);
-    });
-    setBgColor(`rgb(${[...newArr]})`)
+    dispatch(setBgColor());
   }
 
   return (
     <div className="App">
       <QuoteBlock
-        apiData={data}
+        data={data}
         loading={loading}
         newQuote={() => newQuote()}
-        updateTwitter={() => updateTwitter()}
-        twitterLink={twitterLink}
-        bgColor={bgColor} />
+        bgColor={bgColor}
+      />
     </div>
   );
 }
