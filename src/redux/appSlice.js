@@ -14,6 +14,7 @@ export const appSlice = createSlice({
             state.loading = action.payload;
         },
         setData: (state, action) => {
+            console.log(action.payload.author)
             state.data = action.payload;
         },
         setBgColor: (state) => {

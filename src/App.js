@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import QuoteBlock from './components/QuoteBlock';
 import $ from 'jquery';
 import { API_KEY } from './apikey';
 import { useSelector, useDispatch } from 'react-redux'
 import { setLoading, setData, setBgColor, setTwitterLink } from './redux/appSlice'
-import { addListener } from '@reduxjs/toolkit';
 
 const App = () => {
   const loading = useSelector((state) => state.loading);

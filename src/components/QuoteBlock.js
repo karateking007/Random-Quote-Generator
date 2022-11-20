@@ -1,6 +1,6 @@
 import React from "react";
 import load from "../img/load.gif"
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 const QuoteBlock = (props) => {
     const { loading } = useSelector((state) => state.loading)
